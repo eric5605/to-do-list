@@ -1,4 +1,16 @@
 
+h2 {
+  color: blue;
+}
+
+.delete {
+  margin-right: 5px;
+}
+
 body {
-  background-color: grey;
+  background: lightgrey;
+}
+
+#custom-btn {
+  margin-top: 10px;
 }
