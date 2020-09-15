@@ -106,7 +106,6 @@ $(document).ready(function(){
   var updateTodos = function (task) {
     $('#todo-list').append('<div class="row"><p class="col-xs-8">' + task.content + '</p><button class="delete" data-id="' + task.id + '">Delete</button><input type="checkbox" class="mark-complete" data-id="' + task.id + '"' + (task.completed ? 'checked' : '') + '>');
   }
-
   // 3 button toggle
   $(".btn-primary").click(function (e) {
     e.preventDefault();

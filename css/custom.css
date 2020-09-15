@@ -1,7 +1,9 @@
 
 h2 {
   color: blue;
+  font-family: "Times New Roman", Times, serif;
 }
+
 
 .delete {
   margin-right: 5px;
@@ -14,8 +16,9 @@ body {
 #my-btn {
   margin-top: 10px;
 }
-.box {
-  background: grey;
+
+div.box {
+  background: #f0f8ff;
   border: 1px solid black;
   padding: 25px;
 }
