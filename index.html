@@ -17,7 +17,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
+      <div class="row border">
         <div class="col-xs-5">
           <h2>To Do List</h2>
           <div id="todo-list">
@@ -26,17 +26,13 @@
           <input id="new-task-content" type="text" placeholder="new task" required/>
           <button>Create</button>
         </form>
-        <div class="btn-group btn-group-toggle" id="custom-btn" data-toggle="buttons">
-          <label class="btn btn-primary btn-sm">
-            <input type="radio" name="options" id="option1" autocomplete="off">Active
-          </label>
-          <label class="btn btn-primary btn-sm">
-            <input type="radio" name="options" id="option2" autocomplete="off"> Complete
-          </label>
-          <label class="btn btn-primary btn-sm">
-            <input type="radio" name="options" id="option3" autocomplete="off"> All Tasks
-          </label>
+
+        <div class="btn-group btn-group-sm" id="my-btn">
+          <button type="radio" class="btn btn-primary">All</button>
+          <button type="radio" class="btn btn-primary">Active</button>
+          <button type="radio" class="btn btn-primary">Completed</button>
         </div>
+
       </div>
     </div>
    </div>

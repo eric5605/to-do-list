@@ -1,14 +1,19 @@
 $(document).ready(function(){
+
+  var apiResponse;
   var getAndDisplayAllTasks = function () {
     $.ajax({
       type: 'GET',
       url: 'https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=182',
       dataType: 'json',
       success: function (response, textStatus) {
+        apiResponse = response;
+        // console.log(apiResponse);
         $('#todo-list').empty();
         response.tasks.forEach(function (task) {
           $('#todo-list').append('<div class="row"><p class="col-xs-8">' + task.content + '</p><button class="delete" data-id="' + task.id + '">Delete</button><input type="checkbox" class="mark-complete" data-id="' + task.id + '"' + (task.completed ? 'checked' : '') + '>');
         });
+
       },
       error: function (request, textStatus, errorMessage) {
         console.log(errorMessage);
@@ -97,6 +102,33 @@ $(document).ready(function(){
 
   getAndDisplayAllTasks();
 
-  // $().button('toggle')	Toggles push state. Gives the button the appearance that it has been activated.
-  
+  // update todos function to add elements to HTML/to do list
+  var updateTodos = function (task) {
+    $('#todo-list').append('<div class="row"><p class="col-xs-8">' + task.content + '</p><button class="delete" data-id="' + task.id + '">Delete</button><input type="checkbox" class="mark-complete" data-id="' + task.id + '"' + (task.completed ? 'checked' : '') + '>');
+  }
+
+  // 3 button toggle
+  $(".btn-primary").click(function (e) {
+    e.preventDefault();
+    $('#todo-list').empty();
+
+    var pressedButton = $(this).text();
+    // iterate over api response recieved from API
+    apiResponse.tasks.forEach(function (task) {
+      // show completed tasks
+      if (pressedButton === "Completed" && task.completed) {
+        // console.log('completed===true: ', task.content);
+        updateTodos(task);
+      }
+      //show not completed tasks
+      if (pressedButton === "Active" && task.completed === false) {
+        // console.log('completed===false: ', task.content);
+          updateTodos(task);
+        }
+        // show all tasks
+      if (pressedButton === "All") {
+        updateTodos(task);
+      }
+    });
+  });
 });
